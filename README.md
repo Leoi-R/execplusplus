@@ -1,8 +1,8 @@
-# Exec++
+# exec++
 A simple tool for competitive programmers to quickly compile and run their program using G++.
 
 Often times, it can be very time consuming for Competitive Programmers to compile and run one-off C++ code.
-With Exec++, it is easier.
+With exec++, it is easier.
 
 ## How to use
  - Download the release and add it to PATH.
