@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Text;
 using System.Threading;
@@ -38,7 +39,9 @@ public static class Program
 
         try
         {
-            Process.Start("g++", "-o " + _tempPath + " " + FILE_PATH).WaitForExit();
+            var q = Process.Start("g++", "-o " + _tempPath + " " + FILE_PATH);
+            q.WaitForExit();
+
             var e = new ConsoleAppManager(_tempPath);
             e.ExecuteAsync();
             e.StandartTextReceived += (sender, e) => Console.Write(e);
@@ -51,6 +54,10 @@ public static class Program
                 e.WriteLine(s);
             }
 
+        }
+        catch (Win32Exception e)
+        {
+            return;
         }
         catch (Exception e)
         {
